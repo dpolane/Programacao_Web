@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulários de Requerimento</title>
+  <style>
+    /* Estilos CSS aqui */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    #content {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Centro de Recursos</h1>
+
+<form id="loginForm" action="#" method="POST">
+  <label for="username">Usuário:</label>
+  <input type="text" id="username" name="username" required><br><br>
+
+  <label for="password">Senha:</label>
+  <input type="password" id="password" name="password" required><br><br>
+
+  <input type="submit" value="Login">
+</form>
+
+<div id="content">
+  <table>
+    <tr>
+      <th>Parecer do Centro de Recursos</th>
+      <th>Despacho</th>
+    </tr>
+<tr>
+    <td colspan="2"><input type="text" id="parecer_centro" name="parecer_centro"></td>
+	
+  </tr>
+</table>
+
+<table>
+  <caption>Situação Administrativa</caption>
+  <tr>
+    <th>Regular</th>
+    <td><input type="text" id="regular_obs" name="regular_obs"></td>
+  </tr>
+  <tr>
+    <th>Irregular</th>
+    <td><input type="text" id="irregular_obs" name="irregular_obs"></td>
+  </tr>
+</table>
+
+<table>
+  <caption>Identificação do Requerente</caption>
+  <tr>
+    <th>Nome do Estudante</th>
+    <td><input type="text" id="nome_estudante" name="nome_estudante"></td>
+  </tr>
+  <tr>
+    <th>Código do Estudante</th>
+    <td><input type="text" id="codigo_estudante" name="codigo_estudante"></td>
+  </tr>
+  <tr>
+    <th>Curso</th>
+    <td><input type="text" id="curso" name="curso"></td>
+  </tr>
+  <tr>
+    <th>Ano de Frequência</th>
+    <td><input type="text" id="ano_frequencia" name="ano_frequencia"></td>
+  </tr>
+  <tr>
+    <th>Contacto</th>
+    <td><input type="text" id="contacto" name="contacto"></td>
+  </tr>
+  <tr>
+    <th>E-mail</th>
+    <td><input type="text" id="email" name="email"></td>
+  </tr>
+</table>
+
+<table>
+  <caption>Pedido</caption>
+  <tr>
+    <th>a) Anulação de Matrícula</th>
+    <td><input type="checkbox"></td>
+    <th>i) Reclamação de Nota de Teste/Exame</th>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <th>b) Cartão de Estudante 2ª via</th>
+    <td><input type="checkbox"></td>
+    <th>j) Submissão de Relatório de Estágio</th>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <th>c) Declaração Simples______Discriminativa de Notas_____Outro_________________</th>
+    <td><input type="checkbox"></td>
+    <th>k) Realização de Exame  Normal_____ Recorrência______ Especial______ Externo_____ Extraordinario______</th>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <th>d) Mudança de Curso</th>
+    <td><input type="checkbox"></td>
+    <th>l) Matrícula fora da época</th>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <th>e) Equivalência</th>
+    <td><input type="checkbox"></td>
+    <th>m) Reintegração para o ano Académico</th>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <th>f) Situação de Dívida</th>
+    <td><input type="checkbox"></td>
+    <th>n) Transferência para outros CRs</th>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <th>g) Mudança de plano de Pagamento de Propinas</th>
+    <td><input type="checkbox"></td>
+    <th>o) Pedidos de Certificados</th>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <th>h) Submissão de Monografias fora do Prazo</th>
+    <td><input type="checkbox"></td>
+    <th>p) Outros</th>
+    <td><input type="checkbox"></td>
+  </tr>
+</table>
+
+<table>
+  <caption>Justificativa</caption>
+  <tr>
+    <td colspan="2"><textarea id="justificativa" name="justificativa" rows="4" cols="50"></textarea></td>
+  </tr>
+</table>
+
+  <p>CR ______________, aos ______ de ___________________ de 20____</p>
+  <p>O Estudante ___________________________________</p>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    const content = document.getElementById('content');
+
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita o envio do formulário
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Verifica as credenciais
+      if (username === 'admin' && password === 'admin') {
+        // Credenciais corretas, exibe o conteúdo da página
+        loginForm.style.display = 'none'; // Oculta o formulário de login
+        content.style.display = 'block'; // Exibe o conteúdo da página
+      } else {
+        alert('Credenciais inválidas. Tente novamente.');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
